@@ -6,12 +6,12 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 12:31:41 by sopelet           #+#    #+#             */
-/*   Updated: 2026/06/03 16:35:39 by sopelet          ###   ########.fr       */
+/*   Updated: 2026/06/05 15:08:07 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-#define CONTACT_H
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
 #include <iostream>
 #include <string>
