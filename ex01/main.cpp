@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 14:41:58 by sopelet           #+#    #+#             */
-/*   Updated: 2026/06/05 16:35:51 by sopelet          ###   ########.fr       */
+/*   Updated: 2026/06/05 16:52:28 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_isnum(std::string phone_number) {
 	Used when the user calls `ADD`
 	Allows the user to enter the needed contact informations
 */
-void	addCommand(PhoneBook myPhonebook) {
+void	addCommand(PhoneBook &myPhonebook) {
 	std::string	first_name, last_name, nickname, darkest_secret, phone_number;
 	Contact	temp;
 
