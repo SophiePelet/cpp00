@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 14:41:58 by sopelet           #+#    #+#             */
-/*   Updated: 2026/06/08 16:52:17 by sopelet          ###   ########.fr       */
+/*   Updated: 2026/06/08 17:33:29 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 int	check_phone(std::string phone_number) {
 	for (size_t i = 0; i < phone_number.length(); ++i) {
 		if (phone_number[i] < '0' || phone_number[i] > '9')
-			return (std::cerr << "Unauthorized character in phone number" << std::endl, 0);
+			return (std::cerr << RED << "Unauthorized character in phone number" << RESET << std::endl, 0);
 	if (phone_number.length() != 10)
-		return (std::cerr << "Phone number must be 10 characters" << std::endl, 0);
+		return (std::cerr << RED << "Phone number must be 10 characters" << RED << std::endl, 0);
 	}
 	return (1);
 }
@@ -36,23 +36,23 @@ void	addCommand(PhoneBook &myPhonebook) {
 	std::string	first_name, last_name, nickname, darkest_secret, phone_number;
 	Contact	temp;
 
-	std::cout << "Enter contact first name: " << std::endl;
+	std::cout << PINK << "Enter contact first name: " << RESET << std::endl;
 	std::cin >> first_name;
-	std::cout << "Enter contact last name: " << std::endl;
+	std::cout << PINK << "Enter contact last name: " << RESET << std::endl;
 	std::cin >> last_name;
-	std::cout << "Enter contact nickname: " << std::endl;
+	std::cout << PINK << "Enter contact nickname: " << RESET << std::endl;
 	std::cin >> nickname;
-	std::cout << "Enter contact darkest secret: " << std::endl;
+	std::cout << PINK << "Enter contact darkest secret: " << RESET << std::endl;
 	std::cin >> darkest_secret;
-	std::cout << "Enter phone number: " << std::endl;
+	std::cout << PINK << "Enter phone number: " << RESET << std::endl;
 	std::cin >> phone_number;
 	while (!check_phone(phone_number)) {
-		std::cout << "Enter phone number: " << std::endl;
+		std::cout << PINK << "Enter phone number: " << RESET << std::endl;
 		std::cin >> phone_number;
 	}
 	temp.setFields(first_name, last_name, nickname, phone_number, darkest_secret);
 	myPhonebook.addContact(temp);
-	std::cout << "Contact successfully added" << std::endl;
+	std::cout << GREEN << "Contact successfully added" << RESET << std::endl;
 }
 
 int main(void) {
@@ -61,27 +61,27 @@ int main(void) {
 	std::string	index;
 
 	while (1) {
-		std::cout << "What do you want to do? " << std::endl;
+		std::cout << PINK << "What do you want to do? " << RESET << std::endl;
 		std::cin >> command;
 		if (command == "ADD")
 			addCommand(myPhonebook);
 		else if (command == "SEARCH") {
-			std::cout << "Displaying all contacts" << std::endl;
+			std::cout << PINK << "Displaying all contacts: " << RESET << std::endl;
 			myPhonebook.displayAll();
-			std::cout << "Who are you looking for?" << std::endl;
+			std::cout << PINK << "Who are you looking for?" << RESET << std::endl;
 			std::cin >> index;
 			while (!myPhonebook.displayContact(index)) {
-				std::cout << "Incorrect index" << std::endl;
-				std::cout << "Who are you looking for?" << std::endl;
+				std::cout << RED << "Incorrect index" << RESET << std::endl;
+				std::cout << PINK << "Who are you looking for?" << RESET << std::endl;
 				std::cin >> index;
 			}
 		}
 		else if (command == "EXIT") {
-			std::cout << "Closing the phonebook..." << std::endl;
+			std::cout << GREEN << "Closing the phonebook..." << RESET << std::endl;
 			return (0);
 		}
 		else
-			std::cout << "Unknown command, please try again" << std::endl;
+			std::cout << RED << "Unknown command, please try again" << RESET << std::endl;
 	}
 	return (0);
 }
