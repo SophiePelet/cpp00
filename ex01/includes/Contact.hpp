@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 12:31:41 by sopelet           #+#    #+#             */
-/*   Updated: 2026/06/05 15:08:07 by sopelet          ###   ########.fr       */
+/*   Updated: 2026/06/08 12:32:17 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 class Contact {
 public:
@@ -22,6 +23,9 @@ public:
 	~Contact(void);
 	void	setFields(std::string first_name, std::string last_name,
 		std::string nickname, std::string phone_number, std::string darkest_secret);
+	std::string	getFirstname() const;
+	std::string	getLastname() const;
+	std::string	getNickname() const;
 	
 private:
 	std::string	first_name;

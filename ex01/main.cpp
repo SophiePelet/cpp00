@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 14:41:58 by sopelet           #+#    #+#             */
-/*   Updated: 2026/06/05 16:52:28 by sopelet          ###   ########.fr       */
+/*   Updated: 2026/06/08 15:05:37 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ int main(void) {
 		if (command == "ADD")
 			addCommand(myPhonebook);
 		else if (command == "SEARCH") {
-			std::cout << "Loading the contact informations..." << std::endl;
-			// Searching logic
+			std::cout << "Who are you looking for?" << std::endl;
+			myPhonebook.displayAll();
 		}
 		else if (command == "EXIT") {
 			std::cout << "Closing the phonebook..." << std::endl;
