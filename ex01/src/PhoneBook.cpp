@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 12:30:53 by sopelet           #+#    #+#             */
-/*   Updated: 2026/06/08 15:07:31 by sopelet          ###   ########.fr       */
+/*   Updated: 2026/06/08 17:14:47 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	PhoneBook::addContact(Contact const &newContact) {
 }
 
 /* Displays all contacts in a specific format */
-void	PhoneBook::displayAll() {
+void	PhoneBook::displayAll() const {
 	for (int i = 0; i < current_nb; ++i) {
 		std::string	first_name = list[i].getFirstname();
 		std::string	last_name = list[i].getLastname();
@@ -66,4 +66,23 @@ void	PhoneBook::displayAll() {
 			std::cout << std::right << std::setw(10) << nickname << std::endl;
 	}
 	return ;
+}
+
+int	PhoneBook::displayContact(const std::string &index) const {
+	for (size_t i = 0; i < index.size(); ++i) {
+		if (index[i] < '0' || index[i] > '7')
+			return (0);
+	}
+	int	new_index = atoi(index.c_str());
+	std::string	first_name = list[new_index].getFirstname();
+	std::string	last_name = list[new_index].getLastname();
+	std::string	nickname = list[new_index].getNickname();
+	std::string	darkest_secret = list[new_index].getSecret();
+	std::string	phone_number = list[new_index].getPhone();
+	std::cout << first_name << std::endl;
+	std::cout << last_name << std::endl;
+	std::cout << nickname << std::endl;
+	std::cout << darkest_secret << std::endl;
+	std::cout << phone_number << std::endl;
+	return (1);
 }

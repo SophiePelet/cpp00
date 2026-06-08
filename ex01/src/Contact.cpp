@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 13:51:47 by sopelet           #+#    #+#             */
-/*   Updated: 2026/06/08 12:30:33 by sopelet          ###   ########.fr       */
+/*   Updated: 2026/06/08 15:29:59 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,12 @@ std::string	Contact::getLastname() const {
 
 std::string	Contact::getNickname() const {
 	return (nickname);
+}
+
+std::string	Contact::getSecret() const {
+	return (darkest_secret);
+}
+
+std::string	Contact::getPhone() const {
+	return (phone_number);
 }

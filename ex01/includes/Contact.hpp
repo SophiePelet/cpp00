@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 12:31:41 by sopelet           #+#    #+#             */
-/*   Updated: 2026/06/08 12:32:17 by sopelet          ###   ########.fr       */
+/*   Updated: 2026/06/08 16:57:59 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #define CONTACT_HPP
 
 #include <iostream>
-#include <string>
+#include <cstring>
 #include <iomanip>
+#include <cstdlib>
 
 class Contact {
 public:
@@ -26,6 +27,8 @@ public:
 	std::string	getFirstname() const;
 	std::string	getLastname() const;
 	std::string	getNickname() const;
+	std::string	getSecret() const;
+	std::string	getPhone() const;
 	
 private:
 	std::string	first_name;
