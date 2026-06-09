@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 14:41:58 by sopelet           #+#    #+#             */
-/*   Updated: 2026/06/09 14:29:22 by sopelet          ###   ########.fr       */
+/*   Updated: 2026/06/09 15:04:30 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static int	check_input(const std::string &input, std::string &value)
 		return (0);
 	if (value.empty()) {
 		std::cout << RED << "Field cannot be empty" << RESET << std::endl;
+		return (-1);
 	}
 	return (1);
 }
@@ -46,14 +47,27 @@ static int	check_phone(std::string phone_number) {
 static int	addCommand(PhoneBook &myPhonebook) {
 	std::string	first_name, last_name, nickname, darkest_secret, phone_number;
 	Contact	temp;
+	int	status;
 
-	if (!check_input("Enter contact first name: ", first_name))
+	status = check_input("Enter contact first name: ", first_name); 
+	while (status == -1)
+		status = check_input("Enter contact first name: ", first_name);
+	if (!status)
 		return (0);
-	if (!check_input("Enter contact last name: ", last_name))
+	status = check_input("Enter contact last name: ", last_name);
+	while (status == -1)
+		status = check_input("Enter contact last name:", last_name);
+	if (!status)
 		return (0);
-	if (!check_input("Enter contact nickname: ", nickname))
+	status = check_input("Enter contact nickname: ", nickname);
+	while (status == -1)
+		status = check_input("Enter contact nickname:", nickname);
+	if (!status)
 		return (0);
-	if (!check_input("Enter contact darkest secret: ", darkest_secret))
+	status = check_input("Enter contact darkest secret:", darkest_secret);
+	while (status == -1)
+		status = check_input("Enter contact darkest secret:", darkest_secret);
+	if (!status)
 		return (0);
 	if (!check_input("Enter phone number: ", phone_number))
 		return (0);
