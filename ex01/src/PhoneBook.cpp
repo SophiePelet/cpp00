@@ -6,7 +6,7 @@
 /*   By: sopelet <sopelet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 12:30:53 by sopelet           #+#    #+#             */
-/*   Updated: 2026/06/08 17:14:47 by sopelet          ###   ########.fr       */
+/*   Updated: 2026/06/09 12:27:59 by sopelet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ void	PhoneBook::addContact(Contact const &newContact) {
 
 /* Displays all contacts in a specific format */
 void	PhoneBook::displayAll() const {
-	for (int i = 0; i < current_nb; ++i) {
+	int	stored_contacts = current_nb;
+
+	if (stored_contacts > 8)
+		stored_contacts = 8;
+	for (int i = 0; i < stored_contacts; ++i) {
 		std::string	first_name = list[i].getFirstname();
 		std::string	last_name = list[i].getLastname();
 		std::string	nickname = list[i].getNickname();
@@ -69,11 +73,23 @@ void	PhoneBook::displayAll() const {
 }
 
 int	PhoneBook::displayContact(const std::string &index) const {
+	int	stored_contacts = current_nb;
+
+	if (stored_contacts > 8)
+		stored_contacts = 8;
+	if (index.empty())
+		return (0);
 	for (size_t i = 0; i < index.size(); ++i) {
-		if (index[i] < '0' || index[i] > '7')
+		if (index[i] < '0' || index[i] > '7') {
+			std::cout << RED << "Incorrect index" << RESET << std::endl;
 			return (0);
+		}
 	}
 	int	new_index = atoi(index.c_str());
+	if (new_index < 0 || new_index >= stored_contacts) {
+		std::cout << RED << "Contact does not exist" << RESET << std::endl;
+		return (0);
+	}
 	std::string	first_name = list[new_index].getFirstname();
 	std::string	last_name = list[new_index].getLastname();
 	std::string	nickname = list[new_index].getNickname();
